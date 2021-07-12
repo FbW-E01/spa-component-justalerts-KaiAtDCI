@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 
 const Box = (props) => {
 
-    if (!props.hide) console.log(props);
+    if (props.hide) return null;
+
+    console.log(props);
+
     let bootstrapClass = null;
     switch (props.type) {
         case 'blue': bootstrapClass = 'alert alert-primary'; break;
@@ -14,11 +17,9 @@ const Box = (props) => {
     }
 
     return(
-        !props.hide ?
-            <div className={bootstrapClass} role="alert">
-                This is a box - check it out!
-            </div>
-         : null
+        <div className={bootstrapClass} role="alert">
+            This is a box - check it out!
+        </div>
     )
 };
 
